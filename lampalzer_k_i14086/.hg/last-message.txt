@@ -1,1 +1,1 @@
-Aufgabe 2 punkt 2
+Add string testing 

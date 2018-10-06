@@ -33,6 +33,7 @@
         "typeinfo": "cpp",
         "utility": "cpp",
         "deque": "cpp",
-        "list": "cpp"
+        "list": "cpp",
+        "thread": "cpp"
     }
 }

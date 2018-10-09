@@ -1,9 +1,10 @@
 data/03_cppintro3/string_testing/src/main.cpp.i
+data/02_cppintro2/src/main.cpp.i
 data/03_cppintro3/meson.build.i
 data/03_cppintro3/src/periods.cpp.i
 data/.hgignore.i
-data/04_cppintro4/src/aba.cpp.i
+data/04_cppintro4/src/charout.cpp.i
 data/01_cppintro1/src/main.cpp.i
 data/03_cppintro3/string_testing/meson.build.i
-data/02_cppintro2/src/main.cpp.i
+data/04_cppintro4/src/aba.cpp.i
 data/04_cppintro4/meson.build.i

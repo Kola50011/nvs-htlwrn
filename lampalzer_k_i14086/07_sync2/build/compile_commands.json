@@ -1,0 +1,17 @@
+[
+  {
+    "directory": "/home/koka/workspace/nvs-htlwrn/lampalzer_k_i14086/07_sync2/build",
+    "command": "c++  -Imain@exe -I. -I.. -I../include '-I ~/workspace/builds/asio/asio/include/' -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wnon-virtual-dtor -Wextra -Wpedantic -Werror -std=c++17 -O0 -g -DASIO_STANDALONE -DASIO_NO_DEPRECATED -pthread -MD -MQ 'main@exe/src_main.cpp.o' -MF 'main@exe/src_main.cpp.o.d' -o 'main@exe/src_main.cpp.o' -c ../src/main.cpp",
+    "file": "../src/main.cpp"
+  },
+  {
+    "directory": "/home/koka/workspace/nvs-htlwrn/lampalzer_k_i14086/07_sync2/build",
+    "command": "c++  -Imain@exe -I. -I.. -I../include '-I ~/workspace/builds/asio/asio/include/' -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wnon-virtual-dtor -Wextra -Wpedantic -Werror -std=c++17 -O0 -g -DASIO_STANDALONE -DASIO_NO_DEPRECATED -pthread -MD -MQ 'main@exe/src_workQueue.cpp.o' -MF 'main@exe/src_workQueue.cpp.o.d' -o 'main@exe/src_workQueue.cpp.o' -c ../src/workQueue.cpp",
+    "file": "../src/workQueue.cpp"
+  },
+  {
+    "directory": "/home/koka/workspace/nvs-htlwrn/lampalzer_k_i14086/07_sync2/build",
+    "command": "c++  -Imain@exe -I. -I.. -I../include '-I ~/workspace/builds/asio/asio/include/' -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wnon-virtual-dtor -Wextra -Wpedantic -Werror -std=c++17 -O0 -g -DASIO_STANDALONE -DASIO_NO_DEPRECATED -pthread -MD -MQ 'main@exe/src_workPacket.cpp.o' -MF 'main@exe/src_workPacket.cpp.o.d' -o 'main@exe/src_workPacket.cpp.o' -c ../src/workPacket.cpp",
+    "file": "../src/workPacket.cpp"
+  }
+]

@@ -34,6 +34,18 @@
         "utility": "cpp",
         "deque": "cpp",
         "list": "cpp",
-        "thread": "cpp"
+        "thread": "cpp",
+        "queue": "cpp",
+        "csignal": "cpp",
+        "cstdarg": "cpp",
+        "ctime": "cpp",
+        "chrono": "cpp",
+        "condition_variable": "cpp",
+        "memory": "cpp",
+        "mutex": "cpp",
+        "ratio": "cpp",
+        "cinttypes": "cpp",
+        "iomanip": "cpp",
+        "numeric": "cpp"
     }
 }

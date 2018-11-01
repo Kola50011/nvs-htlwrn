@@ -1,0 +1,15 @@
+Build started at 2018-11-01T14:18:43.793280
+Main binary: /usr/bin/python3
+Python system: Linux
+The Meson build system
+Version: 0.45.1
+Source dir: /home/koka/workspace/nvs-htlwrn/lampalzer_k_i14086/07_sync2
+Build dir: /home/koka/workspace/nvs-htlwrn/lampalzer_k_i14086/07_sync2/build
+Build type: native build
+Project name: PROJNAME
+Native C++ compiler: c++ (gcc 7.3.0 "c++ (Ubuntu 7.3.0-27ubuntu1~18.04) 7.3.0")
+Build machine cpu family: x86_64
+Build machine cpu: x86_64
+Dependency threads found: YES (cached)
+Build targets in project: 1
+Found ninja-1.8.2 at /usr/bin/ninja

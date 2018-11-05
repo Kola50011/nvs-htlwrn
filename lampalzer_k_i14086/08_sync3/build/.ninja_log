@@ -1,0 +1,20 @@
+# ninja log v5
+0	546	1541429092	dining@exe/src_main.cpp.o	d383baaabfca0fe9
+0	409	1541429121	dining@exe/src_philosopher.cpp.o	dddddfee7026602d
+1	435	1541429167	dining@exe/src_philosopher.cpp.o	dddddfee7026602d
+0	569	1541429167	dining@exe/src_main.cpp.o	d383baaabfca0fe9
+569	663	1541429167	dining	81e71c855772cc54
+0	365	1541429182	dining@exe/src_philosopher.cpp.o	dddddfee7026602d
+365	447	1541429182	dining	81e71c855772cc54
+1	576	1541430191	dining@exe/src_philosopher.cpp.o	dddddfee7026602d
+1	595	1541430191	dining@exe/src_main.cpp.o	d383baaabfca0fe9
+0	561	1541430218	dining@exe/src_main.cpp.o	d383baaabfca0fe9
+1	575	1541430218	dining@exe/src_philosopher.cpp.o	dddddfee7026602d
+1	486	1541430340	dining@exe/src_philosopher.cpp.o	dddddfee7026602d
+1	486	1541430340	dining@exe/src_main.cpp.o	d383baaabfca0fe9
+0	499	1541430390	dining@exe/src_philosopher.cpp.o	dddddfee7026602d
+0	555	1541430418	dining@exe/src_main.cpp.o	d383baaabfca0fe9
+0	562	1541430418	dining@exe/src_philosopher.cpp.o	dddddfee7026602d
+562	660	1541430418	dining	81e71c855772cc54
+0	502	1541430429	dining@exe/src_philosopher.cpp.o	dddddfee7026602d
+502	586	1541430429	dining	81e71c855772cc54

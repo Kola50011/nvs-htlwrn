@@ -4,6 +4,7 @@
 #include <vector>
 #include <initializer_list>
 #include <string>
+#include "semaphore.h"
 
 class Philosopher
 {
@@ -11,11 +12,10 @@ class Philosopher
     int number;
     std::mutex& leftFork;
     std::mutex& rightFork;
-    static void println(const std::initializer_list<std::string> list);
-    static std::mutex out_mutex;
+    Semaphore* seamphore;
 
   public:
-    Philosopher(int _number, std::mutex& _leftFork, std::mutex& _rightFork);
+    Philosopher(int _number, std::mutex& _leftFork, std::mutex& _rightFork, Semaphore* _semaphore);
     ~Philosopher();
     void eat();
 };

@@ -12,7 +12,7 @@ add_global_arguments('-DASIO_NO_DEPRECATED', language : 'cpp')
 # subdir('SUBDIR1')
 
 inc_dir = include_directories('include')
-src = ['src/main.cpp', 'src/philosopher.cpp']
+src = ['src/main.cpp', 'src/philosopher.cpp', 'src/utils.cpp', 'src/semaphore.cpp']
 
 executable('dining',
            sources : src,

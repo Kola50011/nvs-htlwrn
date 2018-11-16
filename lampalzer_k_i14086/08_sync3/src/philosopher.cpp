@@ -2,14 +2,14 @@
 #include <thread>
 #include <chrono>
 #include <iostream>
+#include <utils.h>
 
 using namespace std;
 
-std::mutex Philosopher::out_mutex;
-
-Philosopher::Philosopher(int _number, std::mutex& _leftFork, std::mutex& _rightFork) :
+Philosopher::Philosopher(int _number, std::mutex& _leftFork, std::mutex& _rightFork, Semaphore* _semaphore) :
     leftFork(_leftFork),
-    rightFork(_rightFork)
+    rightFork(_rightFork),
+    seamphore(_semaphore)
 {
     number = _number;
 }
@@ -20,32 +20,28 @@ Philosopher::~Philosopher()
 
 
 void Philosopher::eat() {
-    println({std::string("aus"), string("gabe")});
-    printf("Philosopher %1i is thinking...\n", number);
+    Utils::println(string{"Philosopher "},to_string(number), string{" is thinking..."});
     std::this_thread::sleep_for(std::chrono::seconds(1));
-
-    printf("Philosopher %1i attempts to get left fork\n", number);
+    
+    if (seamphore != nullptr) {
+        seamphore->acquire();
+    }
+    
+    Utils::println("Philosopher ",to_string(number), " attempts to get left fork");
     leftFork.lock();
-    printf("Philosopher %1i got left fork. Now he wants the right one...\n", number);    
+    std::this_thread::sleep_for(std::chrono::seconds(5));
+    Utils::println("Philosopher ",to_string(number), " got left fork. Now he wants the right one...");
     rightFork.lock();
 
     std::this_thread::sleep_for(std::chrono::seconds(2));
-    printf("Philosopher %1i finished eating\n", number);    
+    Utils::println("Philosopher ",to_string(number), " finished eating");
 
     leftFork.unlock();
-    printf("Philosopher %1i released left fork\n", number);    
+    Utils::println("Philosopher ",to_string(number), " released left fork");
+    if (seamphore != nullptr) {
+        seamphore->release();
+    }
+
     rightFork.unlock();
-    printf("Philosopher %1i released right fork\n", number);    
-}
-
-void Philosopher::println(const initializer_list<string> list) {
-    out_mutex.lock();
-
-    for(string out : list)
-    {
-        cout << out;
-    }    
-    cout << endl;
-
-    out_mutex.unlock();
+    Utils::println("Philosopher ",to_string(number), " released right fork");
 }

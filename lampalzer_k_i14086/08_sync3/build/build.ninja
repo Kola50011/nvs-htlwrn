@@ -68,7 +68,15 @@ build dining@exe/src_philosopher.cpp.o: cpp_COMPILER ../src/philosopher.cpp
  DEPFILE = dining@exe/src_philosopher.cpp.o.d
  ARGS = -Idining@exe -I. -I.. -I../include '-I$ ~/workspace/builds/asio/asio/include/' -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wnon-virtual-dtor -Wextra -Wpedantic -Werror -std=c++17 -O0 -g -DASIO_STANDALONE -DASIO_NO_DEPRECATED -pthread
 
-build dining: cpp_LINKER dining@exe/src_main.cpp.o dining@exe/src_philosopher.cpp.o
+build dining@exe/src_utils.cpp.o: cpp_COMPILER ../src/utils.cpp
+ DEPFILE = dining@exe/src_utils.cpp.o.d
+ ARGS = -Idining@exe -I. -I.. -I../include '-I$ ~/workspace/builds/asio/asio/include/' -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wnon-virtual-dtor -Wextra -Wpedantic -Werror -std=c++17 -O0 -g -DASIO_STANDALONE -DASIO_NO_DEPRECATED -pthread
+
+build dining@exe/src_semaphore.cpp.o: cpp_COMPILER ../src/semaphore.cpp
+ DEPFILE = dining@exe/src_semaphore.cpp.o.d
+ ARGS = -Idining@exe -I. -I.. -I../include '-I$ ~/workspace/builds/asio/asio/include/' -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wnon-virtual-dtor -Wextra -Wpedantic -Werror -std=c++17 -O0 -g -DASIO_STANDALONE -DASIO_NO_DEPRECATED -pthread
+
+build dining: cpp_LINKER dining@exe/src_main.cpp.o dining@exe/src_philosopher.cpp.o dining@exe/src_utils.cpp.o dining@exe/src_semaphore.cpp.o
  LINK_ARGS = -Wl,--no-undefined -Wl,--as-needed -pthread
 
 # Test rules

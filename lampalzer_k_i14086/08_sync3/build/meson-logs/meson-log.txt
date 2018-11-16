@@ -1,4 +1,4 @@
-Build started at 2018-11-05T15:42:34.989569
+Build started at 2018-11-13T08:50:23.029248
 Main binary: /usr/bin/python3
 Python system: Linux
 The Meson build system
@@ -7,19 +7,9 @@ Source dir: /home/koka/workspace/nvs-htlwrn/lampalzer_k_i14086/08_sync3
 Build dir: /home/koka/workspace/nvs-htlwrn/lampalzer_k_i14086/08_sync3/build
 Build type: native build
 Project name: PROJNAME
-Sanity testing C++ compiler: c++
-Is cross compiler: False.
-Sanity check compiler command line: c++ /home/koka/workspace/nvs-htlwrn/lampalzer_k_i14086/08_sync3/build/meson-private/sanitycheckcpp.cc -o /home/koka/workspace/nvs-htlwrn/lampalzer_k_i14086/08_sync3/build/meson-private/sanitycheckcpp.exe
-Sanity check compile stdout:
-
------
-Sanity check compile stderr:
-
------
-Running test binary command: /home/koka/workspace/nvs-htlwrn/lampalzer_k_i14086/08_sync3/build/meson-private/sanitycheckcpp.exe
 Native C++ compiler: c++ (gcc 7.3.0 "c++ (Ubuntu 7.3.0-27ubuntu1~18.04) 7.3.0")
 Build machine cpu family: x86_64
 Build machine cpu: x86_64
-Dependency threads found: YES
+Dependency threads found: YES (cached)
 Build targets in project: 1
 Found ninja-1.8.2 at /usr/bin/ninja

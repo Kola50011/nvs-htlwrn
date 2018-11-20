@@ -47,6 +47,7 @@
         "cinttypes": "cpp",
         "iomanip": "cpp",
         "numeric": "cpp",
-        "shared_mutex": "cpp"
+        "shared_mutex": "cpp",
+        "future": "cpp"
     }
 }

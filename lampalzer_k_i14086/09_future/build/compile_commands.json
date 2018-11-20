@@ -1,0 +1,7 @@
+[
+  {
+    "directory": "/home/koka/workspace/nvs-htlwrn/lampalzer_k_i14086/09_future/build",
+    "command": "c++  -Ifactoring@exe -I. -I.. -I../include '-I ~/workspace/builds/asio/asio/include/' -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wnon-virtual-dtor -Wextra -std=c++17 -O0 -g -DASIO_STANDALONE -DASIO_NO_DEPRECATED -pthread -MD -MQ 'factoring@exe/src_main.cpp.o' -MF 'factoring@exe/src_main.cpp.o.d' -o 'factoring@exe/src_main.cpp.o' -c ../src/main.cpp",
+    "file": "../src/main.cpp"
+  }
+]

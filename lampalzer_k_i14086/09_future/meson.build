@@ -1,0 +1,21 @@
+project('PROJNAME', 'cpp',
+        license : ['Boost'],
+        version : '0.1',
+        default_options : ['cpp_std=c++17', 'warning_level=2'])
+
+thread_dep = dependency('threads')
+
+add_global_arguments('-I ~/workspace/builds/asio/asio/include/', language : 'cpp')
+add_global_arguments('-DASIO_STANDALONE', language : 'cpp')
+add_global_arguments('-DASIO_NO_DEPRECATED', language : 'cpp')
+
+# subdir('SUBDIR1')
+
+inc_dir = include_directories('include')
+src = ['src/main.cpp']
+
+executable('factoring',
+           sources : src,
+           include_directories : inc_dir,
+           dependencies : thread_dep
+          )

@@ -35,7 +35,9 @@ int main(int argc, char const *argv[])
         {
             sum -= lastNumber;
             sum += currentNumber - lastNumber;
-        } else {
+        }
+        else
+        {
             sum += currentNumber;
         }
         lastNumber = currentNumber;

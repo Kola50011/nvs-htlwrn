@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include "workPacket.h"
 #include "workQueue.h"

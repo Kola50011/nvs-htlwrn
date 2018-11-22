@@ -48,6 +48,7 @@
         "iomanip": "cpp",
         "numeric": "cpp",
         "shared_mutex": "cpp",
-        "future": "cpp"
+        "future": "cpp",
+        "atomic": "cpp"
     }
 }

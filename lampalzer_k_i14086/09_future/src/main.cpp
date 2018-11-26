@@ -17,23 +17,26 @@ using namespace std;
 vector<string> argsToVector(int argc, const char *argv[])
 {
     vector<string> strings;
-    for (int i {1}; i < argc; i++) {
+    for (int i{1}; i < argc; i++)
+    {
         strings.push_back(argv[i]);
     }
     return strings;
 }
 
-bool contains(vector<string>& args, string toCheck)
+bool contains(vector<string> &args, string toCheck)
 {
-    for (auto arg : args) {
-        if (arg == toCheck) {
+    for (auto arg : args)
+    {
+        if (arg == toCheck)
+        {
             return true;
         }
     }
     return false;
 }
 
-void removeFromArgs(vector<string>& args, string toRemove)
+void removeFromArgs(vector<string> &args, string toRemove)
 {
     for (unsigned int i{}; i < args.size(); i++)
     {
@@ -79,7 +82,6 @@ vector<shared_future<vector<InfInt>>> getFactorsAsync(vector<InfInt> numbers, la
     {
         futs.push_back(async(lnch, get_factors, number));
     }
-
     return futs;
 }
 
@@ -105,7 +107,8 @@ void checkFactors(vector<InfInt> &numbers, vector<shared_future<vector<InfInt>>>
         {
             prod *= number;
         }
-        if ( prod != numbers.at(i) ) {
+        if (prod != numbers.at(i))
+        {
             cerr << "Factoring FAILED for: " << numbers.at(i) << endl;
         }
     }
@@ -114,14 +117,14 @@ void checkFactors(vector<InfInt> &numbers, vector<shared_future<vector<InfInt>>>
 void handleNumbers(vector<string> &args, launch lnch)
 {
     vector<InfInt> numbers;
-    for (auto arg : args) {
+    for (auto arg : args)
+    {
         InfInt number = arg;
         numbers.push_back(number);
     }
 
     auto factorsFuture = async(getFactorsAsync, numbers, lnch);
     vector<shared_future<vector<InfInt>>> factorFuts = factorsFuture.get();
-
 
     thread printThread{printNumbersToConsole, ref(numbers), factorFuts};
 
@@ -139,7 +142,6 @@ int main(int argc, const char *argv[])
     launch lnch = launch::deferred;
 
     vector<string> args = argsToVector(argc, argv);
-
     if (contains(args, "--async"))
     {
         lnch = launch::async;

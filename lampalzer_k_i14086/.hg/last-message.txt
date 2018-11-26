@@ -1,1 +1,1 @@
-ex 9.7
+Fix time elapsed to factoring time

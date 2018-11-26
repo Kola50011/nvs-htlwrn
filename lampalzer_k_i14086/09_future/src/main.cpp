@@ -85,7 +85,6 @@ vector<shared_future<vector<InfInt>>> getFactorsAsync(vector<InfInt> numbers, la
 
 void printNumbersToConsole(vector<InfInt> &numbers, vector<shared_future<vector<InfInt>>> factorFuts)
 {
-    auto start = chrono::system_clock::now();
     for (unsigned int i{}; i < numbers.size(); i++)
     {
         cout << numbers.at(i) << ":";
@@ -95,8 +94,6 @@ void printNumbersToConsole(vector<InfInt> &numbers, vector<shared_future<vector<
         }
         cout << endl;
     }
-    auto duration = chrono::duration_cast<chrono::milliseconds>(std::chrono::system_clock::now() - start);
-    cout << "Time elapsed used for factoring: " << duration.count() << "ms" << endl;
 }
 
 void checkFactors(vector<InfInt> &numbers, vector<shared_future<vector<InfInt>>> factorFuts)
@@ -125,9 +122,15 @@ void handleNumbers(vector<string> &args, launch lnch)
     auto factorsFuture = async(getFactorsAsync, numbers, lnch);
     vector<shared_future<vector<InfInt>>> factorFuts = factorsFuture.get();
 
+
     thread printThread{printNumbersToConsole, ref(numbers), factorFuts};
+
+    auto start = chrono::system_clock::now();
     thread checkThread{checkFactors, ref(numbers), factorFuts};
     checkThread.join();
+    auto duration = chrono::duration_cast<chrono::milliseconds>(std::chrono::system_clock::now() - start);
+    cout << "Time elapsed used for factoring: " << duration.count() << "ms" << endl;
+
     printThread.join();
 }
 

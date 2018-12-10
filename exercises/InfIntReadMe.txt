@@ -2,6 +2,14 @@
 
 InfInt is simply a lightweight large integer library which consists of a header file. So, all you have to do is to include the header file provided and start using huge integers in your applications.
 
+-- Inclusion of the header file "InfInt.h"
+
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wmisleading-indentation"
+#pragma GCC diagnostic ignored "-Wsign-compare"
+#include "InfInt.h"
+#pragma GCC diagnostic pop
+
 --- Details ---
 
 It is pretty straight forward to use the library. Just create an instance of InfInt class and start using it:

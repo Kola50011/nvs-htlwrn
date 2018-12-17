@@ -17,6 +17,7 @@ class Pipe
     Pipe &operator<<(T value)
     {
         std::unique_lock lck(mtx);
+        cout << value << "into queue" << endl;
         backend.push(value);
         not_empty.notify_one();
         return *this;
@@ -24,16 +25,20 @@ class Pipe
 
     Pipe &operator>>(T &value)
     {
-        if (closed) {
+        if (closed == true)
+        {
+            cout << "CLOSED" << endl;
             return *this;
+        } else {
+            cout << "OPEN" << endl;
         }
 
         std::unique_lock lck(mtx);
-        not_empty.wait(lock, [&] { return backend.size > 0; });
+        not_empty.wait(lck, [&] { return backend.size() > 0; });
 
         value = backend.front();
         backend.pop();
-        
+
         return *this;
     }
 

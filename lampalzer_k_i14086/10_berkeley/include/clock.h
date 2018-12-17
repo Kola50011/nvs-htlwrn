@@ -20,13 +20,12 @@ class Clock
     Clock(){};
     Clock(string _name) : name{_name}
     {
-        curr_time = std::chrono::system_clock::now();
     };
 
     Clock(string _name, int hours, int minutes, int seconds)
     {
-        curr_time = std::chrono::system_clock::now();
-        TIME_UTILS_H::set_time(curr_time, hours, minutes, seconds);
+        curr_time = chrono::system_clock::now();
+        curr_time = TIME_UTILS_H::set_time(curr_time, hours, minutes, seconds);
         name = _name;
     }
 
@@ -45,12 +44,22 @@ class Clock
 
     void set_time(int hours, int minutes, int seconds)
     {
-        TIME_UTILS_H::set_time(curr_time, hours, minutes, seconds);
+        curr_time = TIME_UTILS_H::set_time(curr_time, hours, minutes, seconds);
     }
 
     tuple<int, int, int> get_time()
     {
         return TIME_UTILS_H::get_time(curr_time);
+    }
+
+    long toTime()
+    {
+        return chrono::system_clock::to_time_t(curr_time);
+    }
+
+    void fromTime(long time)
+    {
+        curr_time = chrono::system_clock::from_time_t(time);
     }
 };
 

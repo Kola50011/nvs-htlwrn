@@ -9,22 +9,19 @@
 
 using namespace std;
 
-void createTimeSlave(string name) {
-    TimeSlave ts(name, 0, 0, 0);
-    ts.start();
-}
-
-void createTimeMaster(string name) {
-    TimeMaster tm(name, 0, 0, 0);
-    tm.start();
-}
-
 int main() {
-    thread s1{createTimeSlave, "slave1"};
-    thread s2{createTimeSlave, "slave2"};
-    thread m1{createTimeMaster, "master"};
+    TimeSlave ts1("slave1", 1, 0, 1);
+    TimeSlave ts2("slave2", 0, 1, 1);
+    TimeMaster tm("master", 0, 0, 1);
 
-    s1.join();
-    s2.join();
+    tm.setChannel(1, ts1.getChannel());
+    tm.setChannel(2, ts2.getChannel());
+
+    thread t1{&TimeSlave::start, ts1};
+    thread t2{&TimeSlave::start, (ts2)};
+    thread m1{&TimeMaster::start, (tm)};
+
+    t1.join();
+    t2.join();
     m1.join();
 }

@@ -5,20 +5,21 @@
 class Channel
 {
   private:
-    Pipe<long> pipe1;
-    Pipe<long> pipe2;
+    Pipe<long> masterPipe;
+    Pipe<long> slavePipe;
 
   public:
-    Channel();
-    ~Channel();
+    Channel(){};
+    ~Channel(){};
 
-    Pipe<long> &getPipe(int num)
+    Pipe<long> &getMasterPipe()
     {
-        if (num == 1)
-        {
-            return pipe1;
-        }
-        return pipe2;
+        return masterPipe;
+    }
+
+    Pipe<long> &getSlavePipe()
+    {
+        return slavePipe;
     }
 
     Channel operator=(const Channel &);

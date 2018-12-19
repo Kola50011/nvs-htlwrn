@@ -12,6 +12,7 @@ class Pipe
     std::mutex mtx;
     std::condition_variable not_empty;
     bool closed{false};
+    int latency;
 
   public:
     Pipe &operator<<(T value)

@@ -24,8 +24,7 @@ class TimeMaster
     {
         while (true)
         {
-            this_thread::sleep_for(1s);
-            cout << "RUNNING BARKLEY" << endl;
+            this_thread::sleep_for(5s);
             channel1->getMasterPipe() << 0;
             channel2->getMasterPipe() << 0;
 
@@ -36,15 +35,17 @@ class TimeMaster
             long ownTime = clock.toTime();
 
             long finalTime = timeSlave1 + timeSlave2 + ownTime;
+            finalTime = finalTime / 3;
 
             channel1->getMasterPipe() << finalTime;
             channel2->getMasterPipe() << finalTime;
+            clock.fromTime(finalTime);
         }
     }
 
     void start()
     {
-        thread clockThread{clock};
+        thread clockThread{ref(clock)};
         syncTime();
         clockThread.join();
     }

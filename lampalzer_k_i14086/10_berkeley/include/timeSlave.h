@@ -29,8 +29,6 @@ class TimeSlave
         long time;
         while (masterPipe >> time)
         {
-            cout << "GOT TIME" << endl;
-            cout << time << endl;
             if (time == 0)
             {
                 slavePipe << clock.toTime();
@@ -44,7 +42,7 @@ class TimeSlave
 
     void start()
     {
-        thread clockThread{clock};
+        thread clockThread{ref(clock)};
         syncTime();
         clockThread.join();
     }

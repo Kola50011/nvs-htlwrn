@@ -37,7 +37,7 @@ class Clock
                 lock_guard<mutex> lg(mtx);
                 cout << name << ": " << curr_time << endl;
             }
-            this_thread::sleep_for(1s);
+            this_thread::sleep_for(100ms);
             curr_time += 1s;
         }
     }

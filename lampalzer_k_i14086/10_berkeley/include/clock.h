@@ -15,8 +15,10 @@ class Clock
     chrono::time_point<chrono::system_clock> curr_time;
     string name;
     static mutex mtx;
-
+    
   public:
+    static int clockSpeed;
+    
     Clock(){};
     Clock(string _name) : name{_name}
     {
@@ -37,7 +39,7 @@ class Clock
                 lock_guard<mutex> lg(mtx);
                 cout << name << ": " << curr_time << endl;
             }
-            this_thread::sleep_for(100ms);
+            this_thread::sleep_for(chrono::milliseconds(clockSpeed));
             curr_time += 1s;
         }
     }
@@ -64,3 +66,4 @@ class Clock
 };
 
 mutex Clock::mtx;
+int Clock::clockSpeed{1000};

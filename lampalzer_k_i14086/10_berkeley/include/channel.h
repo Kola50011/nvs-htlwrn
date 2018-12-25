@@ -23,4 +23,9 @@ class Channel
     }
 
     Channel operator=(const Channel &);
+
+    void setLatency(int latency) {
+        masterPipe.setLatency(latency);
+        slavePipe.setLatency(latency);
+    }
 };

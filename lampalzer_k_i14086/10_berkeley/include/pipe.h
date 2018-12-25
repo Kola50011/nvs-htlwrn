@@ -4,6 +4,8 @@
 #include <queue>
 #include <mutex>
 #include <condition_variable>
+#include <thread>
+#include <future>
 
 template <typename T>
 class Pipe
@@ -17,9 +19,7 @@ class Pipe
   public:
     Pipe &operator<<(T value)
     {
-        std::unique_lock lck(mtx);
-        backend.push(value);
-        not_empty.notify_one();
+        auto fut {async(&Pipe::writeIntoQueue, this, value)};
         return *this;
     }
 
@@ -46,6 +46,18 @@ class Pipe
     explicit operator bool()
     {
         return !closed;
+    }
+
+    void setLatency(int _latency)
+    {
+        latency = _latency;
+    }
+
+    void writeIntoQueue(long value) {
+        this_thread::sleep_for(chrono::seconds(latency));
+        std::unique_lock lck(mtx);
+        backend.push(value);
+        not_empty.notify_one();
     }
 };
 #endif

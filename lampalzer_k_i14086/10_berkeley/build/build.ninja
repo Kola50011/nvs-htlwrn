@@ -64,7 +64,15 @@ build EXENAME@exe/src_main.cpp.o: cpp_COMPILER ../src/main.cpp
  DEPFILE = EXENAME@exe/src_main.cpp.o.d
  ARGS = -IEXENAME@exe -I. -I.. -I../include '-I$ ~/workspace/builds/asio/asio/include/' -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wnon-virtual-dtor -Wextra -Wpedantic -Werror -std=c++17 -O0 -g -DASIO_STANDALONE -DASIO_NO_DEPRECATED -pthread
 
-build EXENAME: cpp_LINKER EXENAME@exe/src_main.cpp.o
+build EXENAME@exe/src_cmdarg.cc.o: cpp_COMPILER ../src/cmdarg.cc
+ DEPFILE = EXENAME@exe/src_cmdarg.cc.o.d
+ ARGS = -IEXENAME@exe -I. -I.. -I../include '-I$ ~/workspace/builds/asio/asio/include/' -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wnon-virtual-dtor -Wextra -Wpedantic -Werror -std=c++17 -O0 -g -DASIO_STANDALONE -DASIO_NO_DEPRECATED -pthread
+
+build EXENAME@exe/src_cmdline.cc.o: cpp_COMPILER ../src/cmdline.cc
+ DEPFILE = EXENAME@exe/src_cmdline.cc.o.d
+ ARGS = -IEXENAME@exe -I. -I.. -I../include '-I$ ~/workspace/builds/asio/asio/include/' -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wnon-virtual-dtor -Wextra -Wpedantic -Werror -std=c++17 -O0 -g -DASIO_STANDALONE -DASIO_NO_DEPRECATED -pthread
+
+build EXENAME: cpp_LINKER EXENAME@exe/src_main.cpp.o EXENAME@exe/src_cmdarg.cc.o EXENAME@exe/src_cmdline.cc.o
  LINK_ARGS = -Wl,--no-undefined -Wl,--as-needed -pthread
 
 # Test rules

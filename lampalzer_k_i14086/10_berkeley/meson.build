@@ -12,7 +12,7 @@ add_global_arguments('-DASIO_NO_DEPRECATED', language : 'cpp')
 # subdir('SUBDIR1')
 
 inc_dir = include_directories('include')
-src = ['src/main.cpp', 'src/cmdarg.cc', 'src/cmdline.cc']
+src = ['src/main.cpp']
 
 executable('EXENAME',
            sources : src,

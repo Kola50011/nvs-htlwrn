@@ -12,8 +12,9 @@ class TimeSlave
 {
   private:
     string name;
-    Clock clock;
     Channel *channel;
+    Clock clock;
+
   public:
     TimeSlave(string _name, int hours, int minutes, int seconds) : name{_name}
     {
@@ -50,5 +51,14 @@ class TimeSlave
     Channel *getChannel()
     {
         return channel;
+    }
+
+    void setTimeMonoton(bool value)
+    {
+        clock.setTimeMonoton(value);
+    }
+
+    void setClockSpeed(int speed) {
+        clock.setClockSpeed(speed);
     }
 };

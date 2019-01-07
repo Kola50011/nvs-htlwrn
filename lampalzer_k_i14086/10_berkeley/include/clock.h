@@ -17,9 +17,10 @@ class Clock
     static mutex mtx;
     bool monotonTime;
     int clockSlowdown = 0;
+    int clockSpeed;
 
   public:
-    static int clockSpeed;
+    
     Clock(){};
     Clock(string _name) : name{_name} {};
 
@@ -28,6 +29,7 @@ class Clock
         curr_time = chrono::system_clock::now();
         curr_time = TIME_UTILS_H::set_time(curr_time, hours, minutes, seconds);
         name = _name;
+        clockSpeed = 1000;
     }
 
     void operator()()
@@ -76,7 +78,10 @@ class Clock
     {
         curr_time = chrono::system_clock::from_time_t(time);
     }
+
+    void setClockSpeed(int speed) {
+        clockSpeed = speed;
+    }
 };
 
 mutex Clock::mtx;
-int Clock::clockSpeed{1000};

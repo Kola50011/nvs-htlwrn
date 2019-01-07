@@ -10,9 +10,9 @@ class TimeMaster
 {
   private:
     string name;
-    Clock clock;
     Channel *channel1;
     Channel *channel2;
+    Clock clock;
 
   public:
     TimeMaster(string _name, int hours, int minutes, int seconds) : name{_name}
@@ -60,5 +60,15 @@ class TimeMaster
         {
             channel2 = channel;
         }
+    }
+
+    void setTimeMonoton(bool value)
+    {
+        clock.setTimeMonoton(value);
+    }
+
+    void setClockSpeed(int speed)
+    {
+        clock.setClockSpeed(speed);
     }
 };

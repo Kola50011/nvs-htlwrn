@@ -1,0 +1,12 @@
+[
+  {
+    "directory": "/home/koka/workspace/nvs-htlwrn/lampalzer_k_i14086/11_daytime/build",
+    "command": "c++  -Iclient@exe -I. -I.. -I../include -I/home/koka/workspace/nvs-htlwrn/asio/include -I/home/koka/workspace/nvs-htlwrn/clipp/include -I/home/koka/workspace/nvs-htlwrn/spdlog/include/ -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wnon-virtual-dtor -Wextra -Wpedantic -Werror -std=c++17 -O0 -g -DASIO_STANDALONE -DASIO_NO_DEPRECATED -pthread -MD -MQ 'client@exe/src_daytime_client_main.cpp.o' -MF 'client@exe/src_daytime_client_main.cpp.o.d' -o 'client@exe/src_daytime_client_main.cpp.o' -c ../src/daytime_client/main.cpp",
+    "file": "../src/daytime_client/main.cpp"
+  },
+  {
+    "directory": "/home/koka/workspace/nvs-htlwrn/lampalzer_k_i14086/11_daytime/build",
+    "command": "c++  -Iserver@exe -I. -I.. -I../include -I/home/koka/workspace/nvs-htlwrn/asio/include -I/home/koka/workspace/nvs-htlwrn/clipp/include -I/home/koka/workspace/nvs-htlwrn/spdlog/include/ -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wnon-virtual-dtor -Wextra -Wpedantic -Werror -std=c++17 -O0 -g -DASIO_STANDALONE -DASIO_NO_DEPRECATED -pthread -MD -MQ 'server@exe/src_daytime_server_main.cpp.o' -MF 'server@exe/src_daytime_server_main.cpp.o.d' -o 'server@exe/src_daytime_server_main.cpp.o' -c ../src/daytime_server/main.cpp",
+    "file": "../src/daytime_server/main.cpp"
+  }
+]

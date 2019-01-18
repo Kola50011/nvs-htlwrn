@@ -49,6 +49,13 @@
         "numeric": "cpp",
         "shared_mutex": "cpp",
         "future": "cpp",
-        "atomic": "cpp"
+        "atomic": "cpp",
+        "cstring": "cpp",
+        "bitset": "cpp",
+        "codecvt": "cpp",
+        "functional": "cpp",
+        "typeindex": "cpp",
+        "algorithm": "cpp",
+        "*.ipp": "cpp"
     }
 }

@@ -5,6 +5,8 @@
 #include <chrono>
 #include <string>
 #include <cstdlib>
+#include <cstdint>
+#include <netinet/in.h>
 
 #pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Wsign-conversion"
@@ -16,19 +18,12 @@ using namespace std;
 using namespace asio::ip;
 using namespace clipp;
 
-string getDateTime()
+uint32_t getDateTime()
 {
-    time_t rawtime;
-    struct tm *timeinfo;
-    char buffer[80];
-
-    time(&rawtime);
-    timeinfo = localtime(&rawtime);
-
-    strftime(buffer, sizeof(buffer), "%d-%m-%Y %H:%M:%S", timeinfo);
-    std::string str(buffer);
-
-    return str;
+    chrono::duration d = chrono::system_clock::now().time_since_epoch();
+    uint32_t seconds = chrono::duration_cast<chrono::seconds>(d).count();
+    seconds += 2208988800;
+    return ntohl(seconds);
 }
 
 int main(int argc, char *argv[])
@@ -60,9 +55,8 @@ int main(int argc, char *argv[])
 
         if (strm)
         {
-            string data;
-            strm >> data;
-            strm << getDateTime();
+            uint32_t data = getDateTime();
+            strm.write(reinterpret_cast<char *>(&data), sizeof(data));
             strm.close();
         }
         else

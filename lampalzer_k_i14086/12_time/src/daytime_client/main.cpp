@@ -2,9 +2,10 @@
 #include <iostream>
 #include <asio.hpp>
 #include "clipp.h"
-#include <chrono>
-#include <string>
-#include <cstdlib>
+#include <cstdint>
+#include <netinet/in.h>
+
+#include "timeutils.h"
 
 #pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Wsign-conversion"
@@ -16,27 +17,12 @@ using namespace std;
 using namespace asio::ip;
 using namespace clipp;
 
-string getDateTime()
-{
-    time_t rawtime;
-    struct tm *timeinfo;
-    char buffer[80];
-
-    time(&rawtime);
-    timeinfo = localtime(&rawtime);
-
-    strftime(buffer, sizeof(buffer), "%d-%m-%Y %H:%M:%S", timeinfo);
-    std::string str(buffer);
-
-    return str;
-}
-
 int main(int argc, char *argv[])
 {
-    short unsigned int port;
+    string port = "1113";
     bool help = false;
 
-    auto cli = (required("-p").doc("server port") & value("port", port),
+    auto cli = (option("-p").doc("server port") & value("port", port),
                 option("-h", "--help").doc("help").set(help));
     if (!parse(argc, argv, cli) || help)
     {
@@ -47,27 +33,30 @@ int main(int argc, char *argv[])
     auto console = spdlog::stderr_color_mt("console");
     console->set_level(spdlog::level::err);
 
-    asio::io_context ctx;
-    tcp::endpoint ep{tcp::v4(), port};
-    tcp::acceptor acceptor{ctx, ep};
-    acceptor.listen();
-    tcp::socket sock{ctx};
+    tcp::iostream strm{"localhost", port};
+    strm.expires_after(5s);
 
-    while (true)
+    if (strm)
     {
-        acceptor.accept(sock);
-        tcp::iostream strm{std::move(sock)};
-
+        uint32_t data;
+        strm.read(reinterpret_cast<char *>(&data), sizeof(data));
+        cout << data << endl;
+        data = ntohl(data);
+        data -= 2208988800;
+        
         if (strm)
         {
-            string data;
-            strm >> data;
-            strm << getDateTime();
-            strm.close();
+            chrono::time_point<chrono::system_clock> now{chrono::seconds{data}};
+            cout << now << endl;
         }
         else
         {
             console->error(strm.error().message());
         }
+        strm.close();
+    }
+    else
+    {
+        console->error("Error - Could not connect to server!");
     }
 }

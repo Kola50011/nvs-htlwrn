@@ -1,1 +1,1 @@
-ex11
+Add exercise 12, Small fixes in exercise 11

@@ -1,7 +1,0 @@
-[
-  {
-    "directory": "/home/koka/workspace/nvs-htlwrn/lampalzer_k_i14086/03_cppintro3/build",
-    "command": "c++  -Iperiods@exe -I. -I.. -I../include '-I ~/workspace/builds/asio/asio/include/' -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wnon-virtual-dtor -Wextra -Wpedantic -Werror -std=c++17 -O0 -g -DASIO_STANDALONE -DASIO_NO_DEPRECATED -pthread -MD -MQ 'periods@exe/src_periods.cpp.o' -MF 'periods@exe/src_periods.cpp.o.d' -o 'periods@exe/src_periods.cpp.o' -c ../src/periods.cpp",
-    "file": "../src/periods.cpp"
-  }
-]
